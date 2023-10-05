@@ -1,36 +1,87 @@
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Navbar from "../../components/header/Navbar";
+
+import AllContext from "../../components/allContext/AllContext";
 
 const Login = () => {
+const {userLogin} = AllContext()
+const location = useLocation();
+const navigateuse = useNavigate();
+// console.log('login',location.state)
+  const handlelogin =(e)=>{
+
+    e.preventDefault();
+ 
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    userLogin(email,password)
+    .then((result)=>{
+
+       if(location.state){
+        navigateuse(location.state)
+       }
+
+    })
+    .catch((error)=>{console.log(error)})
+
+    e.target.email.value = '';
+    e.target.password.value = '';
+
+  }
+
     return (
-        <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+
+
+      <>
+
+  
+   <Navbar></Navbar>
+
+      
+      <div className="hero min-h-screen bg-base-200">
+        <div className="hero-content flex-col ">
+          <div className="text-center mb-6 ">
+            <h1 className="text-5xl font-bold ">Login your account</h1>
+           
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
-              <div className="form-control">
+          <div className="card 
+          w-full  shadow-2xl bg-base-100">
+            <form onSubmit={handlelogin} className="card-body w-full">
+
+      
+
+           <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="email" placeholder="email" className="input input-bordered" required />
+                <input type="email"  
+                 
+                name="email" placeholder="email" className="input input-bordered w-full"  />
               </div>
+
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="password" placeholder="password" className="input input-bordered" required />
+                <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                 </label>
               </div>
+
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
               </div>
-            </form>
+
+      <p>Dont’t Have An Account ?  <Link className="text-pink-600 font-bold"  to='/register'>Register</Link>  </p>
+    </form>
+
           </div>
         </div>
       </div>
+      </>
+
     );
 };
 

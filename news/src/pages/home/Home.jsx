@@ -23,7 +23,7 @@ const [newses,setNews] = useState(null)
         
 
 
-console.log(newses)
+// console.log(newses)
 
 
 

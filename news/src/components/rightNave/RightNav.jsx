@@ -4,7 +4,23 @@ import { FaGoogle,FaGithub,FaFacebookF,FaTwitter,FaInstagram } from "react-icons
 import image1 from'./../../../public/assets/qZone1.png'
 import image2 from'./../../../public/assets/qZone2.png'
 import image3 from'./../../../public/assets/qZone3.png'
+import { useContext } from "react";
+import { authContext } from "../contexProvider/ContexProvider";
+import AllContext from "../allContext/AllContext";
 const RightNav = () => {
+
+  const {signInWithGoogle,signInWithGithub}   =  AllContext()
+
+
+ const handleSocialLogin=(login)=>{
+
+    login()
+    .then((result)=>{console.log(result.user)})
+    .catch((error)=>{console.log(error)})
+  
+ }
+
+
     return (
        
         <>
@@ -13,22 +29,22 @@ const RightNav = () => {
 
         <div className="w-full overflow-hidden  ">
 
-<form className="w-full p-4 ">
+<forms className="w-full p-4 ">
 <h1 className="text-4xl px-4 ">Login With </h1>
 
 <div className="hover:border rounded-lg hover:border-blue-600 text-blue-700 m-4">
 
-<button className="text-black btn w-full"> <FaGoogle/>Google</button>
+<button onClick={()=>handleSocialLogin(signInWithGoogle)}  className="text-black btn w-full"> <FaGoogle/>Google</button>
 </div>
 
 
 <div className="hover:border rounded-lg border-opacity-0 border-blue-600  hover:border-blue-600 text-blue-700 m-4">
 
-<button className="text-black btn   w-full"> <FaGithub/>Github</button>
+<button onClick={()=>handleSocialLogin(signInWithGithub)}  className="text-black btn   w-full"> <FaGithub/>Github</button>
 </div>
 
 
-</form>
+</forms>
 </div>
 
 
