@@ -7,7 +7,7 @@ const LeftNav = () => {
 
     useEffect(()=>{
 
-        fetch('../../../public/data/categories.json')
+        fetch('categories.json')
         .then(result => result.json())
         .then(data => setCategories(data))
         .catch((error)=>{console.log(error)})

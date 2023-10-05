@@ -13,7 +13,7 @@ const [newses,setNews] = useState(null)
  
 
   useEffect(()=>{
-    fetch('../../../public/data/news.json')
+    fetch('news.json')
     .then(result => result.json()) 
     .then(data => setNews(data))
     .catch((error)=>{console.log(error)})

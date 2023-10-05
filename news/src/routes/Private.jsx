@@ -3,9 +3,15 @@ import AllContext from "../components/allContext/AllContext";
 
 const Private = ({children}) => {
 
-    const {user}  = AllContext();
+    const {user,loading }  = AllContext();
     const  loc = useLocation();
     // console.log(loc)
+
+ if(loading){
+    return  <div className= "h-[100vh]  flex justify-center items-center  " >
+         <span className="loading loading-infinity w-[180px] h-[180px] "></span>
+    </div>
+ }
 
     if(user){
 

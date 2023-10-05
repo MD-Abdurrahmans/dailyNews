@@ -5,12 +5,13 @@ import { FaArrowLeft } from "react-icons/fa";
 import Navbar from "../../components/header/Navbar";
 
 const NewsDetails = () => {
+
 const [newsDetails,setNewsD] = useState(null)
 
     const detailsId = useParams();
   
     useEffect(()=>{
-        fetch('../../../public/data/news.json')
+        fetch('/news.json')
         .then(result => result.json()) 
         .then(data => setNewsD(data))
         .catch((error)=>{console.log(error)})
@@ -21,7 +22,7 @@ const [newsDetails,setNewsD] = useState(null)
 
     const detailsNews =  newsDetails?.find(ndetails=> ndetails._id == detailsId.id)
 
-console.log(detailsNews)
+// console.log(detailsNews)
 
 
 

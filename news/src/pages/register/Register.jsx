@@ -1,5 +1,5 @@
 
-import { Navigate } from "react-router-dom";
+
 import AllContext from "../../components/allContext/AllContext";
 import Navbar from "../../components/header/Navbar";
 

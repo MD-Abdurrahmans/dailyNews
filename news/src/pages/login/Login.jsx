@@ -16,7 +16,7 @@ const navigateuse = useNavigate();
     const password = e.target.password.value;
 
     userLogin(email,password)
-    .then((result)=>{
+    .then(()=>{
 
        if(location.state){
         navigateuse(location.state)

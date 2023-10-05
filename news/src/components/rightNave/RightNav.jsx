@@ -4,12 +4,11 @@ import { FaGoogle,FaGithub,FaFacebookF,FaTwitter,FaInstagram } from "react-icons
 import image1 from'./../../../public/assets/qZone1.png'
 import image2 from'./../../../public/assets/qZone2.png'
 import image3 from'./../../../public/assets/qZone3.png'
-import { useContext } from "react";
-import { authContext } from "../contexProvider/ContexProvider";
 import AllContext from "../allContext/AllContext";
 const RightNav = () => {
 
-  const {signInWithGoogle,signInWithGithub}   =  AllContext()
+  const {signInWithGoogle,signInWithGithub,facebookLogin,twitterLogin} = AllContext()
+
 
 
  const handleSocialLogin=(login)=>{
@@ -53,14 +52,16 @@ const RightNav = () => {
 
 <form className="border mx-8">
 
-<div className="flex items-center p-4 w-full">
+<div   onClick={()=>handleSocialLogin(facebookLogin)}  className="flex items-center p-4 w-full cursor-pointer">
    <div className="bg-slate-300 rounded-full p-2 mr-4" ><FaFacebookF/></div> 
     <h1>Facebook</h1>
 </div>
-<div className="flex items-center p-4 w-full">
+
+<div onClick={()=>handleSocialLogin(twitterLogin)}  className="cursor-pointer flex items-center p-4 w-full">
    <div className="bg-slate-300 rounded-full p-2 mr-4" ><FaTwitter/></div> 
     <h1>Twitter</h1>
 </div>
+
 <div className="flex items-center p-4 w-full">
    <div className="bg-slate-300 rounded-full p-2 mr-4" ><FaInstagram/></div> 
     <h1>Instagram</h1>

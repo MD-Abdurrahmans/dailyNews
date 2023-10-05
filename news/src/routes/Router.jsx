@@ -8,12 +8,14 @@ import NewsDetails from "../pages/newDetails/NewsDetails";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import Private from "./Private";
+import Error from "../pages/error/error";
   
 const router =  createBrowserRouter([
 
  {
     path:'/',
    element:<Root></Root>,
+   errorElement:<Error></Error>,
    children:[
     {
       path:'/',

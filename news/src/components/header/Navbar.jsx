@@ -6,7 +6,6 @@ const Navbar = () => {
 
 const {user,logOut} = AllContext();
 
-
 const handlelogOut =()=>{
 
 
@@ -37,8 +36,10 @@ const links =<>
 }
 <li> <NavLink to='/register'>Register</NavLink> </li>
 </>
-console.log('our',user?.photoURL)
+
 const userImage = user?.photoURL;
+
+
 
     return (
         <div className="navbar bg-base-100">
@@ -69,10 +70,17 @@ const userImage = user?.photoURL;
  <div>
  <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
-          {/* <img src={user? user.photoURL:userDefaultPic} /> */}
+      
+       {
+         user ? 
+         <img src={userImage} alt="" />:
+
+        <img src={userDefaultPic} />
        
-         <img src={userImage} alt="" />
+       }
        
+         {/* <img src={userImage} alt="" /> */}
+
         </div>
       </label>
  </div>
